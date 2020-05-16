@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import Login from './auth/login';
-import Register from './auth/register';
+import Login from './components/login';
+import Register from './components/register';
 import {Switch , Route} from 'react-router-dom';
-import ProtectedRouter from './auth/protected';
-import Home from './auth/home';
+import ProtectedRouter from './components/protected';
+import Home from './components/home';
 
 
 const App = () => {

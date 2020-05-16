@@ -4,11 +4,22 @@ const router = express.Router();
 const User = require('../model/users')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyTokenUsers');
 
 //localhost:3001/user/register
+router.get('/getUser',verifyToken,async(req,res) =>
+{
+    const userData = jwt.verify(req.token,req.key);
+    console.log(userData);
+    let reqUser =  await User.findOne({email:userData.email});
+    res.send(reqUser);
+})
+
+
 router.post('/register',async(req,res) =>
 {
     let userData = req.body;
+    console.log(userData);
     let emailVerify = await User.findOne({email:userData.email});
     console.log(emailVerify);
     if(emailVerify)

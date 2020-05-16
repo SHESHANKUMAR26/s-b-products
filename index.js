@@ -1,3 +1,4 @@
+ var cors = require('cors');
 const express = require ('express');
 const app = express();
 const bodyParser = require ("body-parser");
@@ -5,10 +6,9 @@ const mongoose = require ("mongoose");
  const userRouter = require('./routers/userRouter');
  const adRouter = require('./routers/adRouters');
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
 app.use("/advertisement",adRouter);
 app.use("/user",userRouter);
 

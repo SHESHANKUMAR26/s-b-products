@@ -3,8 +3,7 @@ import {Route , Redirect} from 'react-router-dom';
 
 const ProtectedRouter = ({component,...rest}) => {
  let RenderComponents = component;
- let hasToken = JSON.parse(localStorage.getItem('auth'));
- console.log(RenderComponents);
+ let hasToken = JSON.parse(localStorage.getItem('auth_token'));
  return (
      <Route
      {...rest}

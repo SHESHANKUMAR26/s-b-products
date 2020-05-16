@@ -4,15 +4,15 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import axios from 'axios'
 import Login from './login';
+import { withRouter } from 'react-router-dom';
 
 
-const Register = () => {
+const Register = (props) => {
   const formik = useFormik({
     initialValues : 
     {
       name: "",
       email:"",
-      gender:"",
       password:"",
       confirmPassword:""
     },
@@ -31,9 +31,6 @@ const Register = () => {
       .email()
       .required("Email is required"),
     
-      gender:yup.string()
-      .required("Select your gender"),
-    
       password:yup.string()
       .required("Password is required"),
     
@@ -41,7 +38,18 @@ const Register = () => {
       .required("Confirm Password is required")
       .oneOf([yup.ref('password'),null],"Password and Confirm Password should be same")
     }),
-    onSubmit:(userInputData)=> {console.log(userInputData);}
+    onSubmit:(userInputData)=> {
+      console.log(userInputData);
+      axios.post('http://localhost:3001/user/register',userInputData).then(response =>
+      {
+        console.log(response.data);
+        props.history.push('/login');
+      }).catch(err =>
+        {
+          console.log(err.response.data);
+        })
+    
+    }
 })
   return (
     <div className = "container mt-4 ">
@@ -77,23 +85,6 @@ const Register = () => {
       :null
         }
 </div>
-<div className="form-group">
-  <label>Gender</label>
-  <select
-  name ="gender" 
-  onChange ={formik.handleChange} 
-  value = {formik.values.gender}
-   className="form-control" id="sel1">
-     <option>---Select One---</option>
-    <option>Male</option>
-    <option>Female</option>
-    <option>Transgender</option>
-  </select>
-  {formik.errors.gender ?
-        <div className = "text-danger">{formik.errors.gender}</div>
-      :null
-        }
-</div>
 <div className = "form-group">
     <label>Password:</label>
         <input 
@@ -122,7 +113,7 @@ const Register = () => {
       :null
         }
 </div>
-        <button className = "btn btn-primary">Submit</button><br></br>
+        <button className = "btn btn-primary" >Submit</button><br></br>
         Already had a account?
         <a href ="#"
         onClick ={()=>{
@@ -138,4 +129,4 @@ const Register = () => {
 }
 
 
-export default Register;
+export default withRouter(Register);

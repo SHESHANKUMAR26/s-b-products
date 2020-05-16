@@ -28,9 +28,9 @@ const Login = (props) => {
     }),
     onSubmit:(userInputData)=> {
         console.log(userInputData);
-        axios.post('http://localhost:5000/api/login',userInputData)
+        axios.post('http://localhost:3001/user/login',userInputData)
         .then(res=>{
-            localStorage.setItem('auth',JSON.stringify(res.data));
+            localStorage.setItem('auth_token',JSON.stringify(res.data.auth_token));
             props.history.push('/home');
         })
         .catch(err => {
