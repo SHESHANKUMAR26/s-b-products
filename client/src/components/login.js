@@ -74,7 +74,7 @@ const Login = (props) => {
     }
 </div>
         <button className = "btn btn-primary">Submit</button><br></br><br></br>
-        don't have a account?
+        don't have an account ?
         <a href ="#"
         onClick ={()=>{
             window.location.href = 'Register';

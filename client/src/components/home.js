@@ -1,5 +1,10 @@
 import React,{useEffect, useState, Fragment} from 'react';
 import axios from 'axios';
+import AboutUs from '../components/home/aboutUs';
+import Features from '../components/home/features';
+import Footer from '../components/home/footer';
+import MainBanner from '../components/home/mainBanner';
+
 
 const Home = (props)=>{
 

@@ -114,7 +114,7 @@ const Register = (props) => {
         }
 </div>
         <button className = "btn btn-primary" >Submit</button><br></br>
-        Already had a account?
+        Already had an account?
         <a href ="#"
         onClick ={()=>{
             window.location.href = 'Login';
