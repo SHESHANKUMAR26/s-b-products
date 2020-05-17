@@ -3,7 +3,7 @@ import Login from './components/login';
 import Register from './components/register';
 import {Switch , Route} from 'react-router-dom';
 import ProtectedRouter from './components/protected';
-import Home from './components/home';
+import AdPost from './components/AdPost';
 
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <Route exact path = "/" component = {Login}/>
       <Route exact path = "/login" component = {Login}/>
       <Route exact path = "/register" component = {Register}/>
-      <ProtectedRouter exact path = "/home" component = {Home}/>
+      <ProtectedRouter exact path = "/home" component = {AdPost}/>
       </Switch>
     </div>
   )
