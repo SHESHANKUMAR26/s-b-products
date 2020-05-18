@@ -31,6 +31,10 @@ var adSchema = mongoose.Schema(
         type: String,
 
     },
+    address:
+    {
+        type:String,
+    },
     name: 
     {
         type: String,
