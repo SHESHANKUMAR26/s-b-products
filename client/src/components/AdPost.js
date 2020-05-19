@@ -31,14 +31,29 @@ const [date, setdate] = useState("");
 const [phone, setphone] = useState("");
 const [adds, setadds] = useState([]);
 const [filter, setfilter] = useState([]);
-const [filterValue, setfilterValue] = useState({change:""})
+const [filterValue, setfilterValue] = useState('')
 
 
 useEffect(()=>{
     fetchUser();
     fetchAd();
+    console.log("highlight");
 },[])
 
+useEffect(() => {
+  const filterAdd = async() =>
+ {
+  if(filterValue === "")
+  {
+    await setfilter(adds);
+  }
+  else{
+ let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
+ await setfilter(filteredADD);
+  }
+} 
+filterAdd();
+}, [filterValue]);
 
  const fetchAd = () =>
  {
@@ -56,21 +71,7 @@ useEffect(()=>{
 
  }
 
- const filterAdd = async(target) =>
- {
-   
-     await setfilterValue({change:target.value});
-    // useEffect(() => { setfilterValue(target.value) }, [])
-    console.log(filterValue.change);
-  //   if(target.value === "")
-  //   {
-  //     await setfilter(adds);
-  //   }
-  //   else{
-  //  let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
-  //  await setfilter(filteredADD);
-  //   }
- }
+ 
 
 const fetchUser = () =>
 {
@@ -256,7 +257,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
 
 <Form.Group>
     <Form.Label>CAREGORY</Form.Label>
-    <Form.Control as="select"   onChange={({target}) => filterAdd(target) }>
+    <Form.Control as="select" value={filterValue}   onChange={({target}) =>  setfilterValue(target.value)} >
       <option value="">All</option>
       <option>CAR</option>
       <option>MOBILE PHONES</option>
