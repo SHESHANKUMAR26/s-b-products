@@ -1,38 +1,390 @@
-.App {
-  text-align: center;
+*
+{
+    margin:0px;
+    padding:0px;
+    scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App 
+{
+    width: 100%;
+    height: 100%;
+    /* width: 1517.5px;
+    height:730px; */
+  /* background-image: url(img12.jpeg);
+  background-attachment: fixed; */
+  /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+} 
+div.content1
+{
+    width: 100%;
+    height: 100%;
+    /* background-attachment: fixed; */
+}
+.left-div
+{
+    height:605px;
+    width:716.5px;
+    margin-left: 25px;
+    margin-top:25px; 
+    /* background-attachment: fixed; */
+    /* background-color:#4e7efa; */
+    background-color: #1f0f8c;
+    float:left;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+}
+.con1-nav
+{
+    position: absolute;
+    margin-left: 780px;
+    margin-top:-29px;
+    width: 470px;
+}
+.con1-nav a
+{
+    float: left;
+    color: #f2f2f2;
+    font-family: fantasy;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    border-top:3px solid white;
+    border-bottom:3px solid white;
+    transition: transform .2s;
+}
+a:hover
+{
+    /* transform: scale(1.02);   */
+    /* border-top:3px solid red;
+    border-bottom:3px solid red; */
+    color:red; 
+}
+.right-div
+{
+    height:657px;
+    width:45%;
+    background-image: url(rlorry.jpg);
+    background-size: 100% 100%;
+    float:right;
+    background-attachment: fixed;
+}
+.blur-color
+{
+    height:607px;
+    width:582px;
+    margin-right: 25px;
+    margin-top:25px;
+    /* background-color:#4e7efa; */
+    background-color:#1f0f8c ;
+    float: right;
+    opacity: 0.5;
+    background-attachment: fixed;
+    /* border-top-right-radius: 20px; */
+}
+h1.mtitle
+{
+    padding:30px 0 0 30px;
+    font-family: fantasy;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0.002em;
+    color:white;
+    /* text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.6); */
+}
+div.mheading
+{
+    position: absolute;
+    margin-left:180px;
+    margin-top: 100px;
+}
+p.quotes
+{
+    font-family: fantasy,Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color:white;
+    width: 500px;
+    margin-left:250px;
+    /* text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.6); */
+}
+.no
+{
+    color:red;
+}
+.content2
+{
+    height:650px;
+    width:100%;
+    position: relative;
+    float:left;
+    background-color: white;
+}
+.con-div1
+{
+    width: 280px;
+    height:330px;
+    background-color: white;
+    /* background: linear-gradient(130deg, rgba(78,126,250,1) 50%, rgba(255,255,255,1) 50%); */
+    background-size: 100% 100%;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 43px;
+    border-radius: 25px;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2), 0 9px 22px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .2s;
+}
+.con-div2
+{
+    width: 280px;
+    height:330px;
+    background-color: white;
+    /* background: linear-gradient(130deg, rgba(255,255,255,1) 50%, rgba(78,126,250,1) 50%); */
+    background-size: 100% 100%;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 370px;
+    border-radius: 25px;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2), 0 9px 22px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .2s;
+}
+.con-div3
+{
+    width: 280px;
+    height:330px;
+    background-color: white;
+    /* background: linear-gradient(130deg, rgba(78,126,250,1) 50%, rgba(255,255,255,1) 50%); */
+    /* background-color: #4e7efa; */
+    background-size: 100% 100%;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 700px;
+    border-radius: 25px;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2), 0 9px 22px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .2s;
+}
+.con-div4
+{
+    width: 280px;
+    height:330px;
+    background-color: white;
+    /* background: linear-gradient(130deg, rgba(255,255,255,1) 50%, rgba(78,126,250,1) 50%); */
+    background-size: 100% 100%;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 1030px;
+    border-radius: 25px;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2), 0 9px 22px 0 rgba(0, 0, 0, 0.19);
+    transition: transform .2s;
+}
+.con-div1:hover
+{
+    background-color:#e4011f;
+    transform: scale(1.02);
+}
+.con-div2:hover
+{
+    transform: scale(1.02);
+    background-color:#e4011f;
+}
+.con-div3:hover
+{
+    transform: scale(1.02);
+    background-color:#e4011f;
+}
+.con-div4:hover
+{
+    transform: scale(1.02);
+    background-color:#e4011f;
+}
+img.logo-truck
+{
+    width:100px;
+    height: 80px;
+    padding:0px;
+    position:absolute;
+    margin-top:33px;
+    margin-left:88px;
+}
+.logo-truck:hover
+{
+    transform: scale(1.5);
+}
+img.logo-submittion
+{
+    width:95px;
+    height: 80px;
+    padding:10px;
+    position:absolute;
+    margin-top:26px;
+    margin-left:98px;
+}
+img.logo-placement
+{
+    width:100px;
+    height: 80px;
+    padding:10px;
+    position:absolute;
+    margin-top:28px;
+    margin-left:98px;
+}
+img.logo-tracking
+{
+    width:90px;
+    height: 90px;
+    padding:0 0 10px 0;
+    position:absolute;
+    margin-top:27px;
+    margin-left:98px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.s-head
+{
+    padding-top: 110px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.con-div1,.con-div2,.con-div3,.con-div4
+{
+    text-align: justify;
 }
-
-.App-link {
-  color: #61dafb;
+.s-con
+{
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+    width: 250px;
+    font-size: 17px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 20px;
+   
 }
+.content3
+{
+    height:750px;
+    width:1348.5px;
+    position: relative;
+    float:left;
+    background-color:white;
+}
+.con3-div-left
+{
+    height:657px;
+    width:574px;
+    float:left;
+}
+.con3-div-right
+{
+    height:657px;
+    width:574px;
+    float:right;
+}
+.con3-image1
+{
+    width:600px;
+    height: 450px;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+.con3-image2
+{
+    width:500px;
+    height: 350px;
+    margin-top: 50px;
+    margin-left: 0px;
+}
+.con3-h1
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 30px;
+    font-weight:350;
+    font-size: 20px;
+}
+.con3-h2
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #1f0f8c;
+    margin-top:15px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.con3-p
+{
+    width: 500px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.content4
+{
+    height:670px;
+    width:1348.5px;
+    position: relative;
+    float:left;
+    background-color:white;
+}
+.con4-div
+{
+    width: 100%;
+    height:250px;
+    background-color: black;
+    margin-top: 150px;
+}
+.con4-div
+{
+    text-align: center;
+    color:white;
+}
+.con4-h1
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    padding-top:40px;
+    color:white;
+}
+.con4-p
+{
+    font-size:20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 15px;
+    letter-spacing: 0.03rem;
+}
+.con4-button
+{
+    background-color: transparent;
+    margin-top:30px;
+    font:white;
+    font-size:20px;
+    font:white;
+    padding:10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border:2px solid white;
+    
+}
+.con4-span
+{
+    color:white;
+}
+.con4-button:hover
+{
+    background-color: white;
+    /* border:2px solid black; */
+}
+.con4-span:hover
+{
+    color:black;
+}
+.con4-op
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50px;
 }

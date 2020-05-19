@@ -9,7 +9,7 @@ const Footer =()=>
           <p className="con4-p">When we commit to deliver a load, we do it. No Execuse</p>
           <button className="con4-button"><span className="con4-span">Get In Touch..!</span></button>
         </div>
-          <p className="con4-op">Copyright ©2020 All rights reserved | This was made by  Madhan kumar</p>
+          <p className="con4-op">Copyright ©2020 All rights reserved |</p>
     </div>
     )
 }
