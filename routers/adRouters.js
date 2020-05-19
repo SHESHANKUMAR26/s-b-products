@@ -3,7 +3,13 @@ const express = require('express');
 const router = express.Router();
 const Ad = require('../model/ad');
 const verifyToken = require('./verifyTokenUsers');
-const  {saveImage} = require('../utils/imageProcessing');
+const  {saveImage ,loadImage} = require('../utils/imageProcessing');
+
+
+router.get('/',async(req,res)=>{
+    let ads = await Ad.find({}).populate("userId");
+    res.status(200).send(ads);
+})
 
 router.post('/add',async(req,res)=>
 {
@@ -41,5 +47,9 @@ router.post('/add',async(req,res)=>
 
 })
 
+router.get("/:id/image", async (req, res) => {
+    const addID = req.params.id;
+    loadImage("advertisement.image", addID, res);
+})
 
 module.exports  = router;

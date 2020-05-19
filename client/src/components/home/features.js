@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Features = () =>
 {
     return(
@@ -25,6 +26,7 @@ const Features = () =>
          <p className="s-con">We also tracking the Status of the Load and Delivery Details. After Load Delivered We Update the Details in the Dashboard.</p>
         </div>
        </div>
+    
     )
 }
 

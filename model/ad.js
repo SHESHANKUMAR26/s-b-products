@@ -4,7 +4,8 @@ var adSchema = mongoose.Schema(
 
     userId: 
     { 
-        type: String 
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Users"
     },
     title: 
     {

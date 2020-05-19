@@ -5,9 +5,9 @@ import Features from './home/features';
 import Footer from './home/footer';
 import MainBanner from './home/mainBanner';
 import DatePicker from "react-datepicker";
-import { Card, Row, Container, Col, Nav,Button,Form,Navbar,FormControl } from 'react-bootstrap';
-import Modal from './modal'
-import {addDays} from 'date-fns'
+import { Card, Row, Container, Col, Nav,Button,Form,Navbar,FormControl , DropdownButton,Dropdown} from 'react-bootstrap';
+import Modal from './modal';
+import {addDays} from 'date-fns';
 
 
 
@@ -29,12 +29,48 @@ const [condition, setcondition] = useState("");
 const [description, setdescription] = useState("");
 const [date, setdate] = useState("");
 const [phone, setphone] = useState("");
-
+const [adds, setadds] = useState([]);
+const [filter, setfilter] = useState([]);
+const [filterValue, setfilterValue] = useState({change:""})
 
 
 useEffect(()=>{
     fetchUser();
+    fetchAd();
 },[])
+
+
+ const fetchAd = () =>
+ {
+   axios.get('http://localhost:3001/advertisement/',{
+        headers:{'auth_token':`${JSON.parse(localStorage.getItem('auth_token'))}`}
+          }).then( async (res) =>
+          {
+        
+            await setadds(res.data);
+            await setfilter(res.data)
+        })
+        .catch(err => {
+         console.log(err.response.data);
+        })
+
+ }
+
+ const filterAdd = async(target) =>
+ {
+   
+     await setfilterValue({change:target.value});
+    // useEffect(() => { setfilterValue(target.value) }, [])
+    console.log(filterValue.change);
+  //   if(target.value === "")
+  //   {
+  //     await setfilter(adds);
+  //   }
+  //   else{
+  //  let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
+  //  await setfilter(filteredADD);
+  //   }
+ }
 
 const fetchUser = () =>
 {
@@ -75,6 +111,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
     }).then( res =>
       {
         console.log(res.data);
+        fetchAd();
       }).catch(err => {
         console.log(err.response.data);
        })
@@ -87,6 +124,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
           {
             formModal && <Modal closeModal ={()=> setformModal(false)}>
 <Form  encType="multipart/form-data" onSubmit={sendAd}>
+
   
     <Form.Group >
       <Form.Label>NAME</Form.Label>
@@ -173,6 +211,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
   </Button>
 </Form>
             </Modal>
+            
           }
         {/* <p>(JSON.stringify(json))</p>
         <button onClick={()=>{
@@ -204,52 +243,78 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
   <div>
       <img src=""className =""></img>
   </div><br></br>
+<div className="d-flex align-items-center justify-content-center" > 
+  <Button variant="dark" onClick={()=>setformModal(true)} style={{marginLeft:"25px"}}>Post Ad</Button> &nbsp;
+  {/* <DropdownButton title="CAREGORY" onChange={(e) => filterAdd(e) } > 
+  <Dropdown.Item as="button" value="" >select</Dropdown.Item>
+  <Dropdown.Item as="button">CARS</Dropdown.Item>
+  <Dropdown.Item as="button">MOBILE PHONES</Dropdown.Item>
+  <Dropdown.Item as="button">FURNITURES</Dropdown.Item>
+  <Dropdown.Item as={"button"}>MOTOR BIKES</Dropdown.Item>
+</DropdownButton> */}
 
-  <Button variant="dark" onClick={()=>setformModal(true)} style={{marginLeft:"25px"}}>Post Ad</Button>
-  
+
+<Form.Group>
+    <Form.Label>CAREGORY</Form.Label>
+    <Form.Control as="select"   onChange={({target}) => filterAdd(target) }>
+      <option value="">All</option>
+      <option>CAR</option>
+      <option>MOBILE PHONES</option>
+      <option>FURNITURES</option>
+      <option>MOTOR BIKES</option>
+    </Form.Control>
+  </Form.Group>
+</div>
   <br></br>
 <Container>
     <Row>
-        <Col>
-        <div class="card" style={{width: "18rem;"}}>
-        <img src="..." class="card-img-top" alt="..."/>
-        <div class="card-body">
-          <h5 class="card-title">CAR</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        
+
+        {filter.map((adds,index) => (
+          <Col key={index}>
+        <div className="card" style={{width: "18rem;"}}>
+        <img src={`http://localhost:3001/advertisement/${adds._id}/image`}   className="card-img-top" alt="..."/>
+        <div className="card-body">
+        <h5 className="card-title">{adds.title}</h5>
+        <h3>{adds.name}</h3>
+        <h3>{adds.price}</h3>
+        <h6>{adds.d}</h6>
+          <p className="card-text">{adds.description}</p>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
         </Col>
-<Col>
-        <div class="card" style={{width: "18rem;"}}>
-        <img src="..." class="card-img-top" alt="..."/>
-        <div class="card-body">
-          <h5 class="card-title">MOTOR BIKE</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-        </Col>
-        <Col>
-        <div class="card" style={{width: "18rem;"}}>
-        <img src="..." class="card-img-top" alt="..."/>
-        <div class="card-body">
-          <h5 class="card-title">FURNITURES</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        ))}
+{/* <Col>
+        <div className="card" style={{width: "18rem;"}}>
+        <img src="..." className="card-img-top" alt="..."/>
+        <div className="card-body">
+          <h5 className="card-title">MOTOR BIKE</h5>
+          <p className="card-text"></p>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
         </Col>
         <Col>
-        <div class="card" style={{width: "18rem;"}}>
-        <img src="..." class="card-img-top" alt="..."/>
-        <div class="card-body">
-          <h5 class="card-title">MOBILE PHONES</h5>
-          <p class="card-text"> </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div className="card" style={{width: "18rem;"}}>
+        <img src="..." className="card-img-top" alt="..."/>
+        <div className="card-body">
+          <h5 className="card-title">FURNITURES</h5>
+          <p className="card-text"></p>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
         </Col>
+        <Col>
+        <div className="card" style={{width: "18rem;"}}>
+        <img src="..." className="card-img-top" alt="..."/>
+        <div className="card-body">
+          <h5 className="card-title">MOBILE PHONES</h5>
+          <p className="card-text"> </p>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+        </Col> */}
     </Row>
     </Container>
 <br/>
