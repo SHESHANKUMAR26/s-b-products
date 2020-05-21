@@ -237,9 +237,9 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
         { 
           localStorage.clear();
         props.push.history('http://localhost:3000/'); 
-      }
-    } 
- className="logout">Logout</button>
+      }} 
+      
+        className="logout">Logout</button>
             
       </Nav>
     <Form inline>
