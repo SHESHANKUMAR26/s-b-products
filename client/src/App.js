@@ -5,6 +5,7 @@ import {Switch , Route} from 'react-router-dom';
 import ProtectedRouter from './components/protected';
 import AdPost from './components/AdPost';
 import Home from './components/home';
+import AboutUs from '../src/components/home/aboutUs'
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Route exact path = "/" component = {Home}/>
       <Route exact path = "/login" component = {Login}/>
       <Route exact path = "/register" component = {Register}/>
+      <Route exact path = "/aboutUs" component ={AboutUs}/>
       <ProtectedRouter exact path = "/home" component = {AdPost}/>
       </Switch>
     </div>

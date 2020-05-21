@@ -16,7 +16,7 @@ app.use("/user",userRouter);
 
 
 
-mongoose.connect("mongodb://localhost/sellingProduct",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect("mongodb+srv://mongodb:mongodb@cluster0-nh1nq.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>{
     console.log("database connected");
     app.listen(3001,()=>{

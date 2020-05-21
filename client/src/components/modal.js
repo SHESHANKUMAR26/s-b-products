@@ -10,10 +10,11 @@ const Modal = (props) => {
         name="times"
         onClick={closeModal}
         style={{
-            color:"white",
+            
+            color:"black",
             cursor:"pointer",
             padding:"20px",
-            backgroundColor:"transparent",
+            backgroundColor:"grey",
             border:"1",
             position:'absolute',
             top:"0.3rem",

@@ -10,6 +10,7 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.5); 
     z-index: 999; 
+   
   }
 
 .contents {
@@ -21,4 +22,29 @@
         bottom:100px;
         position: relative;
   }
-  
+.bg
+{
+  background-color:rgb(169,137,104);
+}
+.aboutButton
+{
+  width: 60%;
+  height: 10%;
+}
+.logout
+{
+  background-color: whitesmoke;
+  margin-left: 700px;
+  border-radius: 15px;
+  border: 0px solid;
+  height: 37px;
+  margin-top: 4px;
+}
+.mylogo
+{
+  cursor: grab;
+}
+.deletebutton
+{
+  margin-left: 45%;
+}

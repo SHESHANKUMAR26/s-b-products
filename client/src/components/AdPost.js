@@ -1,13 +1,14 @@
 import React,{useEffect, useState, Fragment} from 'react';
 import axios from 'axios';
 import AboutUs from './home/aboutUs';
-import Features from './home/features';
+import Features from './home/category';
 import Footer from './home/footer';
 import MainBanner from './home/mainBanner';
 import DatePicker from "react-datepicker";
-import { Card, Row, Container, Col, Nav,Button,Form,Navbar,FormControl , DropdownButton,Dropdown} from 'react-bootstrap';
+import { Card, Row, Container, Col, Nav,Button,Form,Navbar,FormControl ,Fade, DropdownButton,Dropdown} from 'react-bootstrap';
 import Modal from './modal';
 import {addDays} from 'date-fns';
+import Logout from './logout';
 
 
 
@@ -31,14 +32,31 @@ const [date, setdate] = useState("");
 const [phone, setphone] = useState("");
 const [adds, setadds] = useState([]);
 const [filter, setfilter] = useState([]);
-const [filterValue, setfilterValue] = useState({change:""})
+const [filterValue, setfilterValue] = useState('');
+const[open, setOpen] = useState(false);
+
 
 
 useEffect(()=>{
     fetchUser();
     fetchAd();
+    console.log("highlight");
 },[])
 
+useEffect(() => {
+  const filterAdd = async() =>
+ {
+  if(filterValue === "")
+  {
+    await setfilter(adds);
+  }
+  else{
+ let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
+ await setfilter(filteredADD);
+  }
+} 
+filterAdd();
+}, [filterValue]);
 
  const fetchAd = () =>
  {
@@ -56,21 +74,7 @@ useEffect(()=>{
 
  }
 
- const filterAdd = async(target) =>
- {
-   
-     await setfilterValue({change:target.value});
-    // useEffect(() => { setfilterValue(target.value) }, [])
-    console.log(filterValue.change);
-  //   if(target.value === "")
-  //   {
-  //     await setfilter(adds);
-  //   }
-  //   else{
-  //  let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
-  //  await setfilter(filteredADD);
-  //   }
- }
+ 
 
 const fetchUser = () =>
 {
@@ -120,10 +124,10 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
 
     return (
         <div>
-          
+         
           {
             formModal && <Modal closeModal ={()=> setformModal(false)}>
-<Form  encType="multipart/form-data" onSubmit={sendAd}>
+<Form  encType="multipart/form-data"  onSubmit={sendAd}>
 
   
     <Form.Group >
@@ -135,10 +139,10 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
 <Form.Label>CATEGORY</Form.Label>
     <Form.Control as ="select" onChange={({target})=>setcategory(target.value)}>
       <option>select</option>
-      <option>CAR</option>
-      <option>MOTOR BIKE</option>
-      <option>FURNITURE</option>
+      <option>CARS</option>
       <option>MOBILE PHONES</option>
+      <option>FURNITURES</option>
+      <option>MOTOR BIKES</option>
     </Form.Control>
 </Form.Group>
 
@@ -213,11 +217,6 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
             </Modal>
             
           }
-        {/* <p>(JSON.stringify(json))</p>
-        <button onClick={()=>{
-            localStorage.clear();
-            props.push.history('/login');
-            }} className="btn btn-primary">Logout</button> */}
             {/* <span>home page</span>
             <ul>
             {user.map((data,index) => (
@@ -230,98 +229,64 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
             </ul>
              */}
              <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Selling-product-website</Navbar.Brand>
+    <Navbar.Brand href="#home"><img src="S&B LOGO.png" className="mylogo" style={{height:"40px",width:"55"}}></img></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#category">category</Nav.Link>
-      <Nav.Link href="#aboutus">Aboutus</Nav.Link>
-    </Nav>
+      <Nav.Link href="/home">Home</Nav.Link>
+      <Nav.Link href="/aboutUs">About us</Nav.Link>
+        <button onClick={()=>
+        { 
+          localStorage.clear();
+        props.push.history('http://localhost:3000/'); 
+      }
+    } 
+ className="logout">Logout</button>
+            
+      </Nav>
     <Form inline>
     </Form>
   </Navbar>
-  <br />
-  <div>
-      <img src=""className =""></img>
-  </div><br></br>
-<div className="d-flex align-items-center justify-content-center" > 
+  <div className="bg">
+<div className="d-flex align-items-center justify-content-center"> 
   <Button variant="dark" onClick={()=>setformModal(true)} style={{marginLeft:"25px"}}>Post Ad</Button> &nbsp;
-  {/* <DropdownButton title="CAREGORY" onChange={(e) => filterAdd(e) } > 
-  <Dropdown.Item as="button" value="" >select</Dropdown.Item>
-  <Dropdown.Item as="button">CARS</Dropdown.Item>
-  <Dropdown.Item as="button">MOBILE PHONES</Dropdown.Item>
-  <Dropdown.Item as="button">FURNITURES</Dropdown.Item>
-  <Dropdown.Item as={"button"}>MOTOR BIKES</Dropdown.Item>
-</DropdownButton> */}
-
 
 <Form.Group>
-    <Form.Label>CAREGORY</Form.Label>
-    <Form.Control as="select"   onChange={({target}) => filterAdd(target) }>
+    <Form.Label><b>Show ads category</b></Form.Label>
+    <Form.Control as="select" value={filterValue}   onChange={({target}) =>  setfilterValue(target.value)} >
       <option value="">All</option>
-      <option>CAR</option>
+      <option>CARS</option>
       <option>MOBILE PHONES</option>
       <option>FURNITURES</option>
       <option>MOTOR BIKES</option>
     </Form.Control>
   </Form.Group>
+  <Button variant="dark" className="deletebutton">Delete Ad</Button>
+
 </div>
-  <br></br>
+  <br></br> 
 <Container>
     <Row>
         
 
         {filter.map((adds,index) => (
           <Col key={index}>
-        <div className="card" style={{width: "18rem;"}}>
-        <img src={`http://localhost:3001/advertisement/${adds._id}/image`}   className="card-img-top" alt="..."/>
+        <div className="card" style={{width: "18rem",height:"550px"}}>
+        <img src={`http://localhost:3001/advertisement/${adds._id}/image`}   className="card-img-top" alt="product image"/>
         <div className="card-body">
         <h5 className="card-title">{adds.title}</h5>
-        <h3>{adds.name}</h3>
-        <h3>{adds.price}</h3>
-        <h6>{adds.d}</h6>
-          <p className="card-text">{adds.description}</p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
+        <p>Ad posted by&nbsp;<b>{adds.name}</b></p>
+        <h5>PRICE :Rs.{adds.price}</h5>
+        <h6>{adds.date}</h6>
+          <p className="card-text"><b>DESCRIPTION :</b>{adds.description}</p>
         </div>
       </div>
         </Col>
         ))}
-{/* <Col>
-        <div className="card" style={{width: "18rem;"}}>
-        <img src="..." className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">MOTOR BIKE</h5>
-          <p className="card-text"></p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-        </Col>
-        <Col>
-        <div className="card" style={{width: "18rem;"}}>
-        <img src="..." className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">FURNITURES</h5>
-          <p className="card-text"></p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-        </Col>
-        <Col>
-        <div className="card" style={{width: "18rem;"}}>
-        <img src="..." className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title">MOBILE PHONES</h5>
-          <p className="card-text"> </p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-        </Col> */}
     </Row>
     </Container>
 <br/>
     </div>
+    </div>
        
         )
 }
-
-
 export default AdPost;

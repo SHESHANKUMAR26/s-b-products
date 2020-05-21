@@ -50,6 +50,21 @@ router.post('/add',async(req,res)=>
 router.get("/:id/image", async (req, res) => {
     const addID = req.params.id;
     loadImage("advertisement.image", addID, res);
-})
+});
+
+
+router.delete('/delete/:id', function (req, res) {
+    Ad.remove({ _id: req.params.id })
+        .exec()
+        .then(result => {
+           
+            res.status(200).json({msg: "Your Ad is Deleted!"});
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({err})
+        });
+
+});
 
 module.exports  = router;

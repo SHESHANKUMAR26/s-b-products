@@ -21,7 +21,7 @@ const MainBanner = () => {
                <Navbar>
                <div className="con1-nav">
                          <Link to="/">Home</Link>
-                         <a href="#features">Features</a>
+                         <a href="#category">Category</a>
                          <Link to="/register">Register</Link>
                          <Link to="/login">Login</Link>
                          <a href="#aboutUs">AboutUs</a>

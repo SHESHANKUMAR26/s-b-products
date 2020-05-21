@@ -1,10 +1,11 @@
 import React from "react";
 
 
-const Features = () =>
+
+const Category = () =>
 {
     return(
-    <div id="features"  className="content2">
+    <div id="category"  className="content2">
         <div className="con-div1">
          <img src="mobile logo.png" className="logo-truck" alt="truck"/>
           <h1 className="s-head">MOBILE PHONES</h1>
@@ -30,4 +31,4 @@ const Features = () =>
     )
 }
 
-export default Features;
+export default Category;
