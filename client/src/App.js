@@ -6,6 +6,7 @@ import ProtectedRouter from './components/protected';
 import AdPost from './components/AdPost';
 import Home from './components/home';
 import AboutUs from '../src/components/home/aboutUs'
+import '../src/App.css';
 
 
 const App = () => {

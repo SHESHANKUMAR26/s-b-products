@@ -24,6 +24,8 @@
   }
 .bg
 {
+  height:700px;
+  width: 1350px;
   background-color:rgb(169,137,104);
 }
 .aboutButton

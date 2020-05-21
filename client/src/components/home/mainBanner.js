@@ -6,17 +6,16 @@ const MainBanner = () => {
 
     return (
         <div className="content1">
-            <img src =""></img>
          <div className="right-div">
           <div className="blur-color">
            </div>
             </div>
              <div className="left-div">
               <div className="heading">
-               <h1 className="mtitle">SELL & BUY PRODUCTS</h1>
+               <h1 className="mtitle"><img src="S&B LOGO.png"></img></h1>
                 </div>
                  <div className="mheading">
-                <p className="quotes">SELL QUICK<br></br><span class="no">NO EXECUSE.</span></p>
+                <p className="quotes">SELL & BUY <br></br><span class="no">PRODUCTS</span></p>
                </div>
                <Navbar>
                <div className="con1-nav">

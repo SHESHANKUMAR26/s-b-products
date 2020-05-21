@@ -29,7 +29,8 @@ div.content1
     margin-top:25px; 
     /* background-attachment: fixed; */
     /* background-color:#4e7efa; */
-    background-color: #1f0f8c;
+    /* background-color: #1f0f8c; */
+    background-color: #343a40;
     float:left;
     border-left: 1px solid black;
     border-top: 1px solid black;
@@ -80,9 +81,9 @@ a:hover
     margin-right: 25px;
     margin-top:25px;
     /* background-color:#4e7efa; */
-    background-color:#1f0f8c ;
+    background-color:#343a40 ;
     float: right;
-    opacity: 0.5;
+    opacity: 0.25;
     background-attachment: fixed;
     /* border-top-right-radius: 20px; */
 }
@@ -115,7 +116,7 @@ p.quotes
 }
 .no
 {
-    color:red;
+    color:#94742b;
 }
 .content2
 {

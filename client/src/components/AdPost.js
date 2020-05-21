@@ -5,10 +5,10 @@ import Features from './home/category';
 import Footer from './home/footer';
 import MainBanner from './home/mainBanner';
 import DatePicker from "react-datepicker";
+import {withRouter} from 'react-router-dom'
 import { Card, Row, Container, Col, Nav,Button,Form,Navbar,FormControl ,Fade, DropdownButton,Dropdown} from 'react-bootstrap';
 import Modal from './modal';
 import {addDays} from 'date-fns';
-import Logout from './logout';
 
 
 
@@ -236,7 +236,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
         <button onClick={()=>
         { 
           localStorage.clear();
-        props.push.history('http://localhost:3000/'); 
+        props.history.push('/'); 
       }} 
       
         className="logout">Logout</button>
@@ -289,4 +289,4 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
        
         )
 }
-export default AdPost;
+export default withRouter(AdPost);
