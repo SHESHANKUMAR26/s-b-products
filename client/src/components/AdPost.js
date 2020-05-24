@@ -48,11 +48,11 @@ useEffect(() => {
  {
   if(filterValue === "")
   {
-    await setfilter(adds);
+    setfilter(adds);
   }
   else{
- let filteredADD = await adds.filter(add => add.category === `${filterValue}` );
- await setfilter(filteredADD);
+ let filteredADD = adds.filter(add => add.category === `${filterValue}`);
+ setfilter(filteredADD);
   }
 } 
 filterAdd();
@@ -65,8 +65,8 @@ filterAdd();
           }).then( async (res) =>
           {
         
-            await setadds(res.data);
-            await setfilter(res.data)
+           await setadds(res.data);
+           await setfilter(res.data)
         })
         .catch(err => {
          console.log(err.response.data);
@@ -217,17 +217,7 @@ axios.post('http://localhost:3001/advertisement/add',formData,{
             </Modal>
             
           }
-            {/* <span>home page</span>
-            <ul>
-            {user.map((data,index) => (
-                <Fragment key={index}>
-                <li>{data.email}</li>
-                <li>{data.name}</li>
-                </Fragment>
-                ))} 
-                
-            </ul>
-             */}
+            
              <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home"><img src="S&B LOGO.png" className="mylogo" style={{height:"40px",width:"55"}}></img></Navbar.Brand>
     <Nav className="mr-auto">

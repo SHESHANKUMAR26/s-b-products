@@ -1,15 +1,16 @@
 import React from "react";
+import {Link}from 'react-router-dom'
 
 const Footer =()=>
 {
     return(
         <div className="content4">
-        <div className="con4-div">
-          <h1 className="con4-h1">Get Started</h1>
-          <p className="con4-p">When we commit to deliver a load, we do it. No Execuse</p>
-          <button className="con4-button"><span className="con4-span">Get started!</span></button>
+        <div className="con4-div"><br></br><br></br>
+        <Link className="con4-h1" to="/register"><h1>REGISTER</h1></Link>&nbsp;to get started!
+         
         </div>
-          <p className="con4-op">Copyright ©2020 All rights reserved |</p>
+          <p className="con4-op">Copyright ©2020 All rights reserved |
+          <br></br>contact: +91 66666 66666</p>
     </div>
     )
 }

@@ -1,0 +1,21 @@
+.jumbotron
+{
+    background-color:rgb(169,137,104);
+    width:800px;
+    height: 100%;
+    margin-left: 10%;
+}
+.btn-primary
+{
+    background-color: rgb(169,137,104);
+    color: black;
+    border-color:black;
+
+}
+.btn-primary:hover
+{
+    background-color: rgb(169,137,104);
+    color: black;
+    border-color:black;
+
+}

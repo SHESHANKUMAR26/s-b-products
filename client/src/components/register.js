@@ -5,8 +5,7 @@ import * as yup from 'yup';
 import axios from 'axios'
 import Login from './login';
 import { withRouter } from 'react-router-dom';
-
-
+import '../../src/css/register.css'
 const Register = (props) => {
   const formik = useFormik({
     initialValues : 

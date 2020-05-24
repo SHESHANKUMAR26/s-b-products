@@ -48,14 +48,14 @@ div.content1
 .con1-nav a
 {
     float: left;
-    color: #f2f2f2;
+    color:grey ;
     font-family: fantasy;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 20px;
-    border-top:3px solid white;
-    border-bottom:3px solid white;
+    border-top:3px solid rgb(169,137,104);
+    border-bottom:3px solid rgb(169,137,104);
     transition: transform .2s;
 }
 a:hover
@@ -63,13 +63,13 @@ a:hover
     /* transform: scale(1.02);   */
     /* border-top:3px solid red;
     border-bottom:3px solid red; */
-    color:red; 
+    color:rgb(169,137,104); 
 }
 .right-div
 {
     height:657px;
     width:45%;
-    background-image: url(rlorry.jpg);
+    background-image: url(sell\ and\ buy.png);
     background-size: 100% 100%;
     float:right;
     background-attachment: fixed;
@@ -83,7 +83,7 @@ a:hover
     /* background-color:#4e7efa; */
     background-color:#343a40 ;
     float: right;
-    opacity: 0.25;
+    opacity: 0.17;
     background-attachment: fixed;
     /* border-top-right-radius: 20px; */
 }
@@ -95,7 +95,13 @@ h1.mtitle
     font-weight: 900;
     letter-spacing: 0.002em;
     color:white;
+    cursor: no-drop;
     /* text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.6); */
+}
+.quotes::selection
+{
+    color: #94742b;
+    background-color: blue;
 }
 div.mheading
 {
@@ -185,23 +191,23 @@ p.quotes
 }
 .con-div1:hover
 {
-    background-color:#e4011f;
+    background-color:rgb(169,137,104);
     transform: scale(1.02);
 }
 .con-div2:hover
 {
     transform: scale(1.02);
-    background-color:#e4011f;
+    background-color:rgb(169,137,104);
 }
 .con-div3:hover
 {
     transform: scale(1.02);
-    background-color:#e4011f;
+    background-color:rgb(169,137,104);
 }
 .con-div4:hover
 {
     transform: scale(1.02);
-    background-color:#e4011f;
+    background-color:rgb(169,137,104);
 }
 img.logo-truck
 {
@@ -246,7 +252,7 @@ img.logo-tracking
 
 .s-head
 {
-    padding-top: 110px;
+    padding-top: 155px;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -309,7 +315,7 @@ img.logo-tracking
 .con3-h2
 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #1f0f8c;
+    color:rgb(169,137,104) ;
     margin-top:15px;
 
 }
@@ -325,7 +331,7 @@ img.logo-tracking
 }
 .content4
 {
-    height:670px;
+    height:450px;
     width:1348.5px;
     position: relative;
     float:left;
@@ -335,7 +341,7 @@ img.logo-tracking
 {
     width: 100%;
     height:250px;
-    background-color: black;
+    background-color: rgb(169,137,104);
     margin-top: 150px;
 }
 .con4-div
@@ -344,6 +350,13 @@ img.logo-tracking
     color:white;
 }
 .con4-h1
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    padding-top:40px;
+    color:rgb(245, 210, 158);
+}
+.con4-h1:hover
 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 40px;
@@ -360,7 +373,7 @@ img.logo-tracking
 .con4-button
 {
     background-color: transparent;
-    margin-top:30px;
+    margin-top:85px;
     font:white;
     font-size:20px;
     font:white;
@@ -388,4 +401,8 @@ img.logo-tracking
     font-size: 16px;
     text-align: center;
     margin-top: 50px;
+}
+.con4-div
+{
+    margin-top: -25px;
 }
